@@ -1,0 +1,168 @@
+:root {
+  --text-dark: #222;
+  --text-light: #fff;
+  --text-accent: #298360;
+  --text-danger: #f00;
+  --text-small: #aaa;
+}
+/* Общие */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: sans-serif;
+  color: var(--text-main);
+}
+input, textarea {
+  font-family: sans-serif;
+}
+/* Сетка */
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.col-3 {
+  width: 25%;
+}
+.col-4 {
+  width: 33.33%;
+}
+.col-6 {
+  width: 50%;
+}
+.col-9 {
+  width: 75%;
+}
+.col-12 {
+  width: 100%;
+}
+/*меню*/
+.menu {
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+  padding: 15px;
+}
+
+.menu .container {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.menu .phone a {
+    color: var(--text-accent);
+    text-decoration: none;
+}
+.menu .phone a:hover {
+  color: var(--text-main);
+  text-decoration: underline;
+}
+
+.menu .row {
+    width: 60%;
+    display: inline-flex;
+    justify-content: space-evenly;
+} 
+
+.menu .row > ul {
+  list-style: none;
+  text-transform: uppercase;
+} 
+
+.menu .row > ul > li {
+  position: relative;
+  display: inline-flex;
+    padding: 10px;
+}
+.menu .row > ul a.active:hover + ul,
+.menu .row > ul ul:hover {
+  opacity: 1;
+  visibility: visible;
+}
+.menu .row > ul ul {
+  transition: 0.2s;
+  opacity: 0;
+  visibility: hidden;
+  border: 1px solid #eee;
+  position: absolute;
+  top: 30px;
+  width: 280px;
+  padding-left: 0;
+  list-style: none;
+  background-color: #fff;
+}
+.menu .row > ul ul li {
+  padding: 15px;
+}
+.menu .row > ul > li a {
+  color: var(--text-main);
+  text-decoration: none;
+}
+.menu .row > ul > li a:hover {
+  color: var(--text-accent);
+}
+
+.row > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu .logo img {
+    height: 50px;
+}
+
+.btn > a {
+  cursor: pointer;
+  display: block;
+  margin: 20px 0;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-accent);
+  border: 2px solid var(--text-accent);
+  padding: 10px;
+  transition: 0.2s;
+}
+
+.burger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--text-main);
+}
+
+@media (max-width: 768px) {
+  .burger {
+    display: block;
+    margin-left: auto;
+    padding: 10px;
+  }
+
+.row > ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 999;
+  }
+
+  .container:has(.burger.clicked) .row > ul {
+    display: flex;
+  }
+}
+
+
