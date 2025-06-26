@@ -46,8 +46,6 @@ input, textarea {
 }
 /*меню*/
 .menu {
-  display: flex;
-  justify-content: space-between;
   background-color: #fff;
   margin: 0;
   padding: 0;
@@ -69,22 +67,23 @@ input, textarea {
   text-decoration: underline;
 }
 
-.menu .row {
-    width: 60%;
-    display: inline-flex;
-    justify-content: space-evenly;
-} 
-
 .menu .row > ul {
+  display: flex;
+  justify-content: center;
+  flex: 1;
   list-style: none;
   text-transform: uppercase;
 } 
 
 .menu .row > ul > li {
-  position: relative;
-  display: inline-flex;
+    margin: 0 10px;
     padding: 10px;
 }
+
+.menu .row > ul .logo {
+  margin: 0 40px;
+}
+
 .menu .row > ul a.active:hover + ul,
 .menu .row > ul ul:hover {
   opacity: 1;
@@ -96,7 +95,7 @@ input, textarea {
   visibility: hidden;
   border: 1px solid #eee;
   position: absolute;
-  top: 30px;
+  top: 70px;
   width: 280px;
   padding-left: 0;
   list-style: none;
@@ -142,37 +141,34 @@ input, textarea {
   color: var(--text-main);
 }
 
-@media (max-width: 811px) {
+@media (max-width: 983px) {
   .burger {
     display: block;
     margin-left: auto;
     padding: 10px;
   }
 
-  .menu .container {
-    justify-content: center;
-    align-items: center;
-}
-
-.menu .row > ul > li {
-  display: block;
-}
-
-
     .menu .row ul, 
     .menu .phone,
-    .menu .btn, 
-    .menu .logo.hide {
+    .menu .btn,
+    .logo {
         display: none;
     }
 
     .menu .row.show ul {
         display: block;
+        width: 50%;
         position: absolute;
+        top: 10px;
         left: 0px;
         right: 0px;
         background-color: aqua;
     }
+
+     .menu .row.show > ul ul {
+        display: block;
+        visibility: visible;
+     }
     
 
   /* .nav-links {
