@@ -102,7 +102,7 @@ input, textarea {
   background-color: #fff;
 }
 .menu .row > ul ul li {
-  padding: 15px;
+  padding: 10px;
 }
 .menu .row > ul > li a {
   color: var(--text-main);
@@ -136,7 +136,14 @@ input, textarea {
 
 .burger {
   display: none;
-  font-size: 28px;
+  font-size: 32px;
+  cursor: pointer;
+  color: var(--text-main);
+}
+
+.cross {
+  display: none;
+  font-size: 32px;
   cursor: pointer;
   color: var(--text-main);
 }
@@ -148,89 +155,51 @@ input, textarea {
     padding: 10px;
   }
 
-    .menu .row ul, 
-    .menu .phone,
-    .menu .btn,
-    .logo {
-        display: none;
-    }
-
-    .menu .row.show ul {
-        display: block;
-        width: 50%;
-        position: absolute;
-        top: 10px;
-        left: 0px;
-        right: 0px;
-        background-color: aqua;
-    }
-
-     .menu .row.show > ul ul {
-        display: block;
-        visibility: visible;
-     }
-    
-
-  /* .nav-links {
+  .burger.hide {
     display: none;
+  }
+
+  .cross.show {
+    display: block;
+  }
+
+  /* ховаємо всі <li> всередині ul */
+  .menu .row > ul > li {
+    display: none;
+  }
+
+  /* крім логотипу */
+  .menu .row > ul > li.logo {
+    display: block;
+  }
+
+  /* коли є .show – показуємо всі <li> */
+  .menu .row.show > ul > li {
+    display: block;
+  }
+
+   .menu .row.show > ul > li.logo {
+    display: none;
+  }
+
+  .menu .row.show ul {
     flex-direction: column;
     width: 100%;
-    background: black;
-    padding: 10px 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 999;
+    background-color: aqua;
   }
 
-  .nav-links.show {
-    display: flex;
-  }
-
-  .nav-links ul {
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-  }
-
-  .nav-links ul li {
-    padding: 10px 0;
-  }
-
-  .nav-links ul ul {
+  .menu .row.show > ul li ul {
+    display: block;
     position: static;
     opacity: 1;
     visibility: visible;
     border: none;
-    padding: 0;
-    box-shadow: none;
     background: transparent;
+    padding-left: 0;
   }
 
-  .menu .row {
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-  }
-
-  .menu .logo {
-    order: -1;
-    margin: 10px 0;
-    text-align: center;
-  }
-
+  .menu .phone,
   .menu .btn {
-    margin: 10px auto;
+    display: none;
   }
-
-  .menu .phone {
-    width: 100%;
-    text-align: left;
-    padding: 10px 0;
-  } */
 }
-
-
-

@@ -29,18 +29,23 @@
            </ul>
         </div>
         <div class="btn"><a href="">Записатись</a></div>
-        <div class="burger" id="burger">☰</div>
+        <div class="menu_btn burger" id="burger">&#8801;</div>
+        <div class="menu_btn cross" id="cross">&#215;</div>
 		</div>
 	</div>
 </body>
     <script>
   document.addEventListener("DOMContentLoaded", function () {
     const burger = document.getElementById("burger");
+    const cross = document.getElementById("cross");
     const row = document.getElementById("row");
-    const logo = document.getElementById("logo");
-    burger.addEventListener("click", function () {
-      row.classList.toggle("show");
-      logo.classList.toggle("hide");
+    const buttons = document.querySelectorAll('.menu_btn');
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        row.classList.toggle("show");
+        cross.classList.toggle("show");
+        burger.classList.toggle("hide");
+        });
+      });
     });
-  });
 </script>
