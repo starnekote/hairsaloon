@@ -148,11 +148,29 @@ input, textarea {
   color: var(--text-main);
 }
 
+.mobile {
+  display: none;
+}
+
 @media (max-width: 983px) {
+
+  .mobile {
+  display: flex;
+}
   .burger {
     display: block;
     margin-left: auto;
     padding: 10px;
+    z-index: 1001;
+    cursor: pointer;
+  }
+
+  .cross {
+    display: none;
+    margin-left: auto;
+    padding: 10px;
+    z-index: 1001;
+    cursor: pointer;
   }
 
   .burger.hide {
@@ -163,31 +181,41 @@ input, textarea {
     display: block;
   }
 
-  /* ховаємо всі <li> всередині ul */
+  /* базово ховаємо меню за лівим краєм */
+  .menu .row {
+    position: fixed;
+    top: 0;
+    left: -250px; /* ширина меню */
+    width: 250px;
+    height: 100%;
+    background-color: aqua; /* або інший колір */
+    overflow-y: auto;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    display: block;
+  }
+
+  /* при додаванні класу show – виїжджає */
+  .menu .row.show {
+    left: 0;
+  }
+
+  /* ховаємо всі <li> крім логотипу */
   .menu .row > ul > li {
     display: none;
   }
 
-  /* крім логотипу */
-  .menu .row > ul > li.logo {
-    display: block;
-  }
-
-  /* коли є .show – показуємо всі <li> */
+  /* коли меню відкрите – показуємо всі <li>, крім логотипу */
   .menu .row.show > ul > li {
     display: block;
+    padding: 10px 20px;
   }
 
-   .menu .row.show > ul > li.logo {
+  .menu .row.show > ul > li.logo {
     display: none;
   }
 
-  .menu .row.show ul {
-    flex-direction: column;
-    width: 100%;
-    background-color: aqua;
-  }
-
+  /* підменю всередині "Послуги" */
   .menu .row.show > ul li ul {
     display: block;
     position: static;
@@ -195,7 +223,12 @@ input, textarea {
     visibility: visible;
     border: none;
     background: transparent;
-    padding-left: 0;
+    padding-left: 20px;
+  }
+
+  .menu .row.show ul {
+    flex-direction: column;
+    width: 100%;
   }
 
   .menu .phone,
