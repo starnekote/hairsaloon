@@ -11,6 +11,7 @@
 }
 body {
   margin: 0;
+  margin-top: 80px;
   font-family: sans-serif;
   color: var(--text-main);
 }
@@ -38,17 +39,28 @@ input, textarea {
 .col-6 {
   width: 50%;
 }
+.col-8 {
+  width: 66.66%;
+}
 .col-9 {
   width: 75%;
 }
 .col-12 {
   width: 100%;
 }
+
+.anchor {
+  scroll-margin-top: 80px;
+}
 /*меню*/
 .menu {
+  position: fixed;      /* робимо меню фіксованим зверху */
+  top: 0;               /* прилипає до верху */
+  left: 0;
+  width: 100%;          /* на всю ширину */
+  z-index: 1000;  
   background-color: #fff;
   margin: 0;
-  padding: 0;
   padding: 15px;
 }
 
@@ -122,18 +134,6 @@ input, textarea {
     height: 50px;
 }
 
-.btn > a {
-  cursor: pointer;
-  display: block;
-  margin: 20px 0;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--text-accent);
-  border: 2px solid var(--text-accent);
-  padding: 10px;
-  transition: 0.2s;
-}
-
 .burger {
   display: none;
   font-size: 32px;
@@ -152,7 +152,182 @@ input, textarea {
   display: none;
 }
 
-@media (max-width: 983px) {
+/* Шапка */
+.header {
+  min-height: 800px;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: contain;
+}
+.header-inner {
+  padding: 25px;
+  margin-top: 25px;
+}
+.header-inner h2,
+.popular-title h2 {
+  color: var(--text-small);
+  text-transform: uppercase;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.header-inner h2:before,
+.header-inner h2:after,
+.popular-title h2:before,
+.popular-title h2:after {
+  display: block;
+  content: '';
+  width: 50px;
+  height: 5px;
+  background-color: var(--text-accent);
+  margin: 20px;
+}
+.doors {
+  display: flex;
+  justify-content: space-evenly;
+}
+.door {
+  text-align: center;
+}
+.door a,
+.btn {
+  cursor: pointer;
+  display: block;
+  margin: 5px 0;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-accent);
+  border: 2px solid var(--text-accent);
+  padding: 10px;
+  transition: 0.2s;
+}
+.btn {
+  background-color: transparent;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+}
+.header .btn {
+	display: block;
+	max-width: 250px;
+	margin: 15px auto 5px;
+}
+.door a:hover,
+.btn:hover,
+.btn:focus {
+  color: var(--text-light);
+  background-color: var(--text-accent);
+}
+.door .name {
+  text-transform: uppercase;
+  color: var(--text-light);
+  background-color: var(--text-small);
+  width: 150px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Сертифікати*/
+.advantages h2 {
+  text-transform: uppercase;
+  height: 20px;
+  font-size: 30px;
+  text-align: center;
+  color: var(--text-dark);
+}
+
+.advantages-cards img {
+	width: 100%;
+	height: auto;
+}
+.advantages-card {
+    text-align: center;
+    padding: 40px;
+    margin-bottom: 30px;
+}
+
+.advantages-cards h3 {
+  text-transform: uppercase;
+  color: var(--text-accent);
+  font-size: 20px;
+}
+.advantages-cards p {
+  line-height: 22px;
+}
+
+/* Популярные товары */
+.popular {
+  background-size: cover;
+  padding-bottom: 50px;
+}
+.popular-title {
+  justify-content: center;
+  padding: 30px 0;
+}
+.product img {
+  width: auto;
+  height: 250px;
+}
+.product h3 {
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.product {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Локація */
+.contacts iframe {
+  margin-top: 10px;
+}
+
+.contacts .photo-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 640px;
+}
+
+.contacts .map {
+  padding-top: 10px;
+}
+
+.contacts p {
+  margin: 20px 100px;
+}
+
+.contacts-inner {
+  display: flex;
+  justify-content: space-around;
+}
+
+.contacts-inner ul {
+  list-style: none;
+}
+
+.contacts-inner ul li:first-child {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 1025px) {
+
+.container {
+    max-width: 568px;
+  }
+  .col-lg-4 {
+    width: 33.33%;
+  }
+  .col-lg-6 {
+    width: 50%;
+  }
+  .col-lg-12 {
+    width: 100%;
+  }
 
   .mobile {
   display: flex;
@@ -235,4 +410,21 @@ input, textarea {
   .menu .btn {
     display: none;
   }
+}
+
+/* sm */
+@media screen and (max-width: 416px) {
+  .container {
+    max-width: 350px;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+  .row {
+    justify-content: center;
+  }
+
+  .contacts p {
+  margin: 10px;
+}
 }
